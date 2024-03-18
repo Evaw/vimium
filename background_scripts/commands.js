@@ -414,13 +414,13 @@ const defaultKeyMappings = {
   "V": "enterVisualLineMode",
 
   // Link hints
-  "f": "LinkHints.activateMode",
-  "F": "LinkHints.activateModeToOpenInNewTab",
+  "<c-f>": "LinkHints.activateMode",
+  "<c-F>": "LinkHints.activateModeToOpenInNewTab",
   "<a-f>": "LinkHints.activateModeWithQueue",
   "yf": "LinkHints.activateModeToCopyLinkUrl",
 
   // Using find
-  "/": "enterFindMode",
+  "<c-/>": "enterFindMode",
   "n": "performFind",
   "N": "performBackwardsFind",
 
@@ -460,7 +460,7 @@ const defaultKeyMappings = {
   "`": "Marks.activateGotoMode",
 
   // Misc
-  "?": "showHelp",
+  "<c-?>": "showHelp",
   "gs": "toggleViewSource",
 };
 
