@@ -62,6 +62,22 @@ function createFirefoxManifest(manifest) {
     },
   });
 
+  // Firefox supports SVG icons.
+  Object.assign(manifest, {
+    "icons": {
+        "16": "icons/icon.svg",
+        "32": "icons/icon.svg",
+        "48": "icons/icon.svg",
+        "64": "icons/icon.svg",
+        "96": "icons/icon.svg",
+        "128": "icons/icon.svg"
+    },
+  });
+
+  Object.assign(manifest.action, {
+    "default_icon": "icons/action_disabled.svg",
+  });
+
   return manifest;
 }
 
@@ -113,7 +129,8 @@ async function buildStorePackage() {
 
   const firefoxManifest = createFirefoxManifest(chromeManifest);
   await writeDistManifest(firefoxManifest);
-  await shell("bash", ["-c", `${zipCommand} ../firefox/vimium-firefox-${version}.zip .`]);
+  // Exclude PNG icons from the Firefox build, because we use the SVG directly.
+  await shell("bash", ["-c", `${zipCommand} ../firefox/vimium-firefox-${version}.zip . -x icons/*.png`]);
 
   // Build the Chrome Store package.
   await writeDistManifest(chromeManifest);

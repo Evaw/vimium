@@ -297,6 +297,7 @@ const Commands = {
       "scrollToLeft",
       "scrollToRight",
       "reload",
+      "hardReload",
       "copyCurrentUrl",
       "openCopiedUrlInCurrentTab",
       "openCopiedUrlInNewTab",
@@ -350,6 +351,10 @@ const Commands = {
       "closeOtherTabs",
       "moveTabLeft",
       "moveTabRight",
+      "setZoom",
+      "zoomIn",
+      "zoomOut",
+      "zoomReset",
     ],
     misc: ["showHelp", "toggleViewSource"],
   },
@@ -381,6 +386,11 @@ const Commands = {
     "enterVisualLineMode",
     "toggleViewSource",
     "passNextKey",
+    "hardReload",
+    "setZoom",
+    "zoomIn",
+    "zoomOut",
+    "zoomReset",
   ],
 };
 
@@ -399,6 +409,7 @@ const defaultKeyMappings = {
   "d": "scrollPageDown",
   "u": "scrollPageUp",
   "r": "reload",
+  "R": "hardReload",
   "yy": "copyCurrentUrl",
   "p": "openCopiedUrlInCurrentTab",
   "P": "openCopiedUrlInNewTab",
@@ -454,6 +465,9 @@ const defaultKeyMappings = {
   "X": "restoreTab",
   "<a-p>": "togglePinTab",
   "<a-m>": "toggleMuteTab",
+  "zi": "zoomIn",
+  "zo": "zoomOut",
+  "z0": "zoomReset",
 
   // Marks
   "m": "Marks.activateCreateMode",
@@ -485,6 +499,7 @@ const commandDescriptions = {
   scrollFullPageUp: ["Scroll a full page up"],
 
   reload: ["Reload the page", { background: true }],
+  hardReload: ["Hard reload the page", { background: true }],
   toggleViewSource: ["View page source", { noRepeat: true }],
 
   copyCurrentUrl: ["Copy the current URL to the clipboard", { noRepeat: true }],
@@ -546,6 +561,11 @@ const commandDescriptions = {
 
   moveTabLeft: ["Move tab to the left", { background: true }],
   moveTabRight: ["Move tab to the right", { background: true }],
+
+  setZoom: ["Set zoom level to a given value. E.g. map zz setZoom 1.5", { background: true }],
+  zoomIn: ["Increase zoom", { background: true }],
+  zoomOut: ["Decrease zoom", { background: true }],
+  zoomReset: ["Reset zoom", { background: true }],
 
   "Vomnibar.activate": ["Open URL, bookmark or history entry", { topFrame: true }],
   "Vomnibar.activateInNewTab": ["Open URL, bookmark or history entry in a new tab", {
